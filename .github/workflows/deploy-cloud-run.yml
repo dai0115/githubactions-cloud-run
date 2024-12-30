@@ -32,7 +32,8 @@ jobs:
       - name: Build Docker image
         run: |
           docker build \
-            -t asia-northeast1-docker.pkg.dev/${{ secrets.PROJECT_ID }}/github-actions-test/hello-go:${{ github.sha }} .
+            -f /app/Dokerfile \
+            -t asia-northeast1-docker.pkg.dev/${{ secrets.PROJECT_ID }}/github-actions-test/hello-go:${{ github.sha }} ./app
 
       - name: Push Docker image
         run: |
